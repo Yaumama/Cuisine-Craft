@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:coal"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+
+  "result": {
+    "item": "cuisinecraft:oven"
+  }
+}

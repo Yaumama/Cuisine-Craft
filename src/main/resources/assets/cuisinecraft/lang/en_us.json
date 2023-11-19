@@ -1,0 +1,12 @@
+{
+  "item.cuisinecraft.butter": "Butter",
+  "item.cuisinecraft.whisk": "Whisk",
+
+  "block.cuisinecraft.kitchen_floor": "Kitchen Floor",
+  "block.cuisinecraft.mixing_bowl": "Mixing Bowl",
+  "block.cuisinecraft.oven": "Oven",
+  "block.cuisinecraft.frying_pan": "Frying Pan",
+  "block.cuisinecraft.cutting_board": "Cutting Board",
+
+  "itemGroup.cuisinecrafttab": "Cuisine Craft"
+}

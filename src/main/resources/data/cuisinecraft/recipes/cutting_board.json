@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "www",
+    "www"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+
+  "result": {
+    "item": "cuisinecraft:cutting_board"
+  }
+}
