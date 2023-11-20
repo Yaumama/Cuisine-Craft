@@ -6,8 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.yaumama.cuisinecraft.CuisineCraft;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
-import net.yaumama.cuisinecraft.block.entity.renderer.CuttingBoardBlockEntityRenderer;
-import net.yaumama.cuisinecraft.block.entity.renderer.PlateBlockEntityRenderer;
+import net.yaumama.cuisinecraft.block.entity.renderer.*;
 
 public class ClientEvents {
     @Mod.EventBusSubscriber
@@ -23,6 +22,12 @@ public class ClientEvents {
                     CuttingBoardBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.PLATE.get(),
                     PlateBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.FRYING_PAN.get(),
+                    FryingPanBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.SAUCEPAN.get(),
+                    SaucepanBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.MIXING_BOWL.get(),
+                    MixingBowlBlockEntityRenderer::new);
         }
     }
 }

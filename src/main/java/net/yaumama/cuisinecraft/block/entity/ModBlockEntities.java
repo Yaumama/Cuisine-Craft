@@ -22,6 +22,21 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(PlateBlockEntity::new,
                             ModBlocks.PLATE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<FryingPanBlockEntity>> FRYING_PAN =
+            BLOCK_ENTITIES.register("frying_pan", () ->
+                    BlockEntityType.Builder.of(FryingPanBlockEntity::new,
+                            ModBlocks.FRYING_PAN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<SaucepanBlockEntity>> SAUCEPAN =
+            BLOCK_ENTITIES.register("saucepan", () ->
+                    BlockEntityType.Builder.of(SaucepanBlockEntity::new,
+                            ModBlocks.SAUCEPAN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<MixingBowlBlockEntity>> MIXING_BOWL =
+            BLOCK_ENTITIES.register("mixing_bowl", () ->
+                    BlockEntityType.Builder.of(MixingBowlBlockEntity::new,
+                            ModBlocks.MIXING_BOWL.get()).build(null));
+
 
 
     public static void register(IEventBus eventBus) {

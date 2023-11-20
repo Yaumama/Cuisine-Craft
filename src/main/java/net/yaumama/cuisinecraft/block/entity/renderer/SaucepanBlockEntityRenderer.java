@@ -14,26 +14,26 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.yaumama.cuisinecraft.block.custom.Plate;
-import net.yaumama.cuisinecraft.block.entity.PlateBlockEntity;
+import net.yaumama.cuisinecraft.block.custom.Saucepan;
+import net.yaumama.cuisinecraft.block.entity.SaucepanBlockEntity;
 
-public class PlateBlockEntityRenderer implements BlockEntityRenderer<PlateBlockEntity> {
-    public PlateBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+public class SaucepanBlockEntityRenderer implements BlockEntityRenderer<SaucepanBlockEntity> {
+    public SaucepanBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 
     }
 
     @Override
-    public void render(PlateBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
+    public void render(SaucepanBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
                        MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
         ItemStack itemStack = pBlockEntity.getRenderStack();
         pPoseStack.pushPose();
         pPoseStack.translate(0.5f, 0.1f, 0.5f);
-        pPoseStack.scale(0.6f, 0.6f, 0.6f);
+        pPoseStack.scale(0.4f, 0.4f, 0.4f);
         pPoseStack.mulPose(Vector3f.XP.rotationDegrees(90));
 
-        switch (pBlockEntity.getBlockState().getValue(Plate.FACING)) {
+        switch (pBlockEntity.getBlockState().getValue(Saucepan.FACING)) {
             case NORTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(0));
             case EAST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(90));
             case SOUTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(180));

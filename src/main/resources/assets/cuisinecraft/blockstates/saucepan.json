@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cuisinecraft:block/saucepan"
+    },
+    "facing=south": {
+      "model": "cuisinecraft:block/saucepan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cuisinecraft:block/saucepan",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "cuisinecraft:block/saucepan",
+      "y": 90
+    }
+  }
+}

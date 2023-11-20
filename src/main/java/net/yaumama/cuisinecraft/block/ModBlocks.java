@@ -11,10 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yaumama.cuisinecraft.CuisineCraft;
-import net.yaumama.cuisinecraft.block.custom.CuttingBoard;
-import net.yaumama.cuisinecraft.block.custom.FryingPan;
-import net.yaumama.cuisinecraft.block.custom.MixingBowl;
-import net.yaumama.cuisinecraft.block.custom.Oven;
+import net.yaumama.cuisinecraft.block.custom.*;
 import net.yaumama.cuisinecraft.item.ModCreativeModeTab;
 import net.yaumama.cuisinecraft.item.ModItems;
 
@@ -44,8 +41,12 @@ public class ModBlocks {
             () -> new CuttingBoard(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(1f).noOcclusion()), ModCreativeModeTab.CUISINECRAFT_TAB, 1);
     public static final RegistryObject<Block> PLATE = registerBlock("plate",
-            () -> new CuttingBoard(BlockBehaviour.Properties.of(Material.WOOD)
+            () -> new Plate(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(1f).noOcclusion()), ModCreativeModeTab.CUISINECRAFT_TAB, 4);
+
+    public static final RegistryObject<Block> SAUCEPAN = registerBlock("saucepan",
+            () -> new Saucepan(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.CUISINECRAFT_TAB, 1);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, int stacksTo) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

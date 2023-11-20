@@ -7,6 +7,8 @@
   "block.cuisinecraft.oven": "Oven",
   "block.cuisinecraft.frying_pan": "Frying Pan",
   "block.cuisinecraft.cutting_board": "Cutting Board",
+  "block.cuisinecraft.plate": "Plate",
+  "block.cuisinecraft.saucepan": "Saucepan",
 
   "itemGroup.cuisinecrafttab": "Cuisine Craft"
 }

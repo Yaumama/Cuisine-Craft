@@ -18,28 +18,27 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.yaumama.cuisinecraft.block.entity.SaucepanBlockEntity;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
-import net.yaumama.cuisinecraft.block.entity.FryingPanBlockEntity;
-import net.yaumama.cuisinecraft.block.entity.PlateBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-public class FryingPan extends BaseEntityBlock {
+public class Saucepan extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public FryingPan(Properties properties) {
+    public Saucepan(Properties properties) {
         super(properties);
     }
 
     private static final VoxelShape SHAPE =
-            Block.box(0, 0, 0, 16, 2, 16);
+            Block.box(0, 0, 0, 16, 7, 16);
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos blockPos, Player player,
                                  InteractionHand hand, BlockHitResult hitResult) {
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             BlockEntity entity = level.getBlockEntity(blockPos);
-            if (entity instanceof FryingPanBlockEntity fryingPanBlockEntity) {
-                fryingPanBlockEntity.placeFood(player, player.getMainHandItem());
+            if (entity instanceof SaucepanBlockEntity saucepanBlockEntity) {
+                saucepanBlockEntity.placeFood(player, player.getMainHandItem());
             }
         }
 
@@ -83,8 +82,8 @@ public class FryingPan extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof FryingPanBlockEntity) {
-                ((FryingPanBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof SaucepanBlockEntity) {
+                ((SaucepanBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -93,14 +92,14 @@ public class FryingPan extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new FryingPanBlockEntity(pos, state);
+        return new SaucepanBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
                                                                   BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.FRYING_PAN.get(),
-                FryingPanBlockEntity::tick);
+        return createTickerHelper(type, ModBlockEntities.SAUCEPAN.get(),
+                SaucepanBlockEntity::tick);
     }
 }

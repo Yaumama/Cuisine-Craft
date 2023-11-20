@@ -31,15 +31,15 @@ public class Plate extends BaseEntityBlock {
     }
 
     private static final VoxelShape SHAPE =
-            Block.box(0, 0, 0, 16, 1, 16);
+            Block.box(0, 0, 0, 16, 2, 16);
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos blockPos, Player player,
                                  InteractionHand hand, BlockHitResult hitResult) {
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             BlockEntity entity = level.getBlockEntity(blockPos);
-            if (entity instanceof PlateBlockEntity PlateBlockEntity) {
-                PlateBlockEntity.placeFood(player, player.getMainHandItem());
+            if (entity instanceof PlateBlockEntity plateBlockEntity) {
+                plateBlockEntity.placeFood(player, player.getMainHandItem());
             }
         }
 

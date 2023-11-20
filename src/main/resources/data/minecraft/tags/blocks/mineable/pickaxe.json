@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "cuisinecraft:kitchen_floor",
-    "cuisinecraft:oven"
+    "cuisinecraft:oven",
+    "cuisinecraft:frying_pan",
+    "cuisinecraft:saucepan"
   ]
 }

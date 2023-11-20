@@ -6,7 +6,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkEvent;
-import net.yaumama.cuisinecraft.block.entity.CuttingBoardBlockEntity;
+import net.yaumama.cuisinecraft.block.entity.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,7 +45,15 @@ public class ItemStackSyncS2CPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof CuttingBoardBlockEntity blockEntity) {
+            if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof CuttingBoardBlockEntity blockEntity) {
+                blockEntity.setHandler(this.itemStackHandler);
+            } else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof PlateBlockEntity blockEntity) {
+                blockEntity.setHandler(this.itemStackHandler);
+            } else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof FryingPanBlockEntity blockEntity) {
+                blockEntity.setHandler(this.itemStackHandler);
+            } else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof SaucepanBlockEntity blockEntity) {
+                blockEntity.setHandler(this.itemStackHandler);
+            } else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof MixingBowlBlockEntity blockEntity) {
                 blockEntity.setHandler(this.itemStackHandler);
             }
         });

@@ -14,16 +14,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.yaumama.cuisinecraft.block.custom.Plate;
-import net.yaumama.cuisinecraft.block.entity.PlateBlockEntity;
+import net.yaumama.cuisinecraft.block.custom.MixingBowl;
+import net.yaumama.cuisinecraft.block.entity.MixingBowlBlockEntity;
 
-public class PlateBlockEntityRenderer implements BlockEntityRenderer<PlateBlockEntity> {
-    public PlateBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+public class MixingBowlBlockEntityRenderer implements BlockEntityRenderer<MixingBowlBlockEntity> {
+    public MixingBowlBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 
     }
 
     @Override
-    public void render(PlateBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
+    public void render(MixingBowlBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
                        MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
@@ -33,7 +33,7 @@ public class PlateBlockEntityRenderer implements BlockEntityRenderer<PlateBlockE
         pPoseStack.scale(0.6f, 0.6f, 0.6f);
         pPoseStack.mulPose(Vector3f.XP.rotationDegrees(90));
 
-        switch (pBlockEntity.getBlockState().getValue(Plate.FACING)) {
+        switch (pBlockEntity.getBlockState().getValue(MixingBowl.FACING)) {
             case NORTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(0));
             case EAST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(90));
             case SOUTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(180));
