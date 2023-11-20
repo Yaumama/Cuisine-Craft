@@ -82,7 +82,7 @@ public class CuttingBoardBlockEntity extends BlockEntity {
     }
 
     public void placeFood(ItemStack item) {
-        itemHandler.setStackInSlot(1, item.split(1));
+        itemHandler.setStackInSlot(0, item.split(1));
     }
 
     public static void tick(Level level, BlockPos blockPos, BlockState state, CuttingBoardBlockEntity pEntity) {
@@ -92,7 +92,7 @@ public class CuttingBoardBlockEntity extends BlockEntity {
     }
 
     public ItemStack getRenderStack() {
-        return itemHandler.getStackInSlot(1);
+        return itemHandler.getStackInSlot(0);
     };
 
     public void setHandler(ItemStackHandler itemStackHandler) {
