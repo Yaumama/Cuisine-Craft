@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "   ",
+    "qqq"
+  ],
+  "key": {
+    "q": {
+      "item": "minecraft:quartz"
+    }
+  },
+
+  "result": {
+    "item": "cuisinecraft:plate"
+  }
+}

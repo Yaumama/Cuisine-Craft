@@ -17,6 +17,12 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(CuttingBoardBlockEntity::new,
                             ModBlocks.CUTTING_BOARD.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<PlateBlockEntity>> PLATE =
+            BLOCK_ENTITIES.register("plate", () ->
+                    BlockEntityType.Builder.of(PlateBlockEntity::new,
+                            ModBlocks.PLATE.get()).build(null));
+
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

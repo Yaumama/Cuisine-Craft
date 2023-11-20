@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.yaumama.cuisinecraft.CuisineCraft;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
 import net.yaumama.cuisinecraft.block.entity.renderer.CuttingBoardBlockEntityRenderer;
+import net.yaumama.cuisinecraft.block.entity.renderer.PlateBlockEntityRenderer;
 
 public class ClientEvents {
     @Mod.EventBusSubscriber
@@ -20,6 +21,8 @@ public class ClientEvents {
         public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.CUTTING_BOARD.get(),
                     CuttingBoardBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.PLATE.get(),
+                    PlateBlockEntityRenderer::new);
         }
     }
 }

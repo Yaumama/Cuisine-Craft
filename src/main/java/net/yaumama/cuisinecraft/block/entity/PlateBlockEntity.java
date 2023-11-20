@@ -6,12 +6,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -24,7 +22,7 @@ import net.yaumama.cuisinecraft.networking.packet.ItemStackSyncS2CPacket;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CuttingBoardBlockEntity extends BlockEntity {
+public class PlateBlockEntity extends BlockEntity {
     private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -37,8 +35,8 @@ public class CuttingBoardBlockEntity extends BlockEntity {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
-    public CuttingBoardBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CUTTING_BOARD.get(), pos, state);
+    public PlateBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.PLATE.get(), pos, state);
     }
 
     @Override
@@ -99,7 +97,7 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         }
     }
 
-    public static void tick(Level level, BlockPos blockPos, BlockState state, CuttingBoardBlockEntity pEntity) {
+    public static void tick(Level level, BlockPos blockPos, BlockState state, PlateBlockEntity pEntity) {
         if (level.isClientSide()) {
             return;
         }

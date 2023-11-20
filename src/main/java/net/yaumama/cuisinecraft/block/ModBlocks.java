@@ -43,6 +43,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CUTTING_BOARD = registerBlock("cutting_board",
             () -> new CuttingBoard(BlockBehaviour.Properties.of(Material.WOOD)
                     .strength(1f).noOcclusion()), ModCreativeModeTab.CUISINECRAFT_TAB, 1);
+    public static final RegistryObject<Block> PLATE = registerBlock("plate",
+            () -> new CuttingBoard(BlockBehaviour.Properties.of(Material.WOOD)
+                    .strength(1f).noOcclusion()), ModCreativeModeTab.CUISINECRAFT_TAB, 4);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, int stacksTo) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
