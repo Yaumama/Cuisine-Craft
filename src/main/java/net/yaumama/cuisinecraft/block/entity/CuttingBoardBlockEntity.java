@@ -16,6 +16,8 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.yaumama.cuisinecraft.networking.ModMessages;
+import net.yaumama.cuisinecraft.networking.packet.ItemStackSyncS2CPacket;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,6 +26,9 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            if (!level.isClientSide()) {
+                ModMessages.sendToClients(new ItemStackSyncS2CPacket(this, worldPosition));
+            }
         }
     };
 
@@ -79,6 +84,16 @@ public class CuttingBoardBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos blockPos, BlockState state, CuttingBoardBlockEntity pEntity) {
         if (level.isClientSide()) {
             return;
+        }
+    }
+
+    public ItemStack getRenderStack() {
+        return itemHandler.getStackInSlot(1);
+    };
+
+    public void setHandler(ItemStackHandler itemStackHandler) {
+        for (int i = 0; i < itemStackHandler.getSlots(); i++) {
+            itemHandler.setStackInSlot(i, itemStackHandler.getStackInSlot(i));
         }
     }
 }

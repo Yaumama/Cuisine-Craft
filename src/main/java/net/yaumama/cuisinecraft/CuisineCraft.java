@@ -12,6 +12,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yaumama.cuisinecraft.block.ModBlocks;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
 import net.yaumama.cuisinecraft.item.ModItems;
+import net.yaumama.cuisinecraft.networking.ModMessages;
 import org.slf4j.Logger;
 
 
@@ -34,7 +35,9 @@ public class CuisineCraft
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ModMessages.register();
+        });
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
