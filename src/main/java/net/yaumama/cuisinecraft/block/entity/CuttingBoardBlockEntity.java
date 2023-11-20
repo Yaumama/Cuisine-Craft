@@ -81,6 +81,10 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
+    public void placeFood(ItemStack item) {
+        itemHandler.setStackInSlot(1, item.split(1));
+    }
+
     public static void tick(Level level, BlockPos blockPos, BlockState state, CuttingBoardBlockEntity pEntity) {
         if (level.isClientSide()) {
             return;

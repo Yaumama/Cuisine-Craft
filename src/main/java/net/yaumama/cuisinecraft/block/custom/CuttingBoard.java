@@ -44,8 +44,8 @@ public class CuttingBoard extends BaseEntityBlock {
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             if (player.getMainHandItem().is(Items.BEEF)) {
                 BlockEntity entity = level.getBlockEntity(blockPos);
-                if (entity instanceof CuttingBoardBlockEntity) {
-
+                if (entity instanceof CuttingBoardBlockEntity cuttingBoardBlockEntity) {
+                    cuttingBoardBlockEntity.placeFood(player.getMainHandItem());
                 }
             }
         }
