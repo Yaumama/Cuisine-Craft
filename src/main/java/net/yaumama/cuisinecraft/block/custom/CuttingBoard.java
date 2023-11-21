@@ -46,7 +46,7 @@ public class CuttingBoard extends BaseEntityBlock {
                 if (!player.getMainHandItem().is(ModItems.KNIFE.get())) {
                     cuttingBoardBlockEntity.placeFood(player, player.getMainHandItem());
                 } else {
-                    cuttingBoardBlockEntity.cutFood();
+                    cuttingBoardBlockEntity.cutFood(blockPos, player);
                 }
             }
         }

@@ -3,6 +3,10 @@ package net.yaumama.cuisinecraft.block.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
@@ -18,14 +22,17 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
+import net.yaumama.cuisinecraft.item.ModItems;
 import net.yaumama.cuisinecraft.networking.ModMessages;
 import net.yaumama.cuisinecraft.networking.packet.ItemStackSyncS2CPacket;
+import net.yaumama.cuisinecraft.sound.ModSounds;
+import net.yaumama.cuisinecraft.utility.GeneralUtility;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CuttingBoardBlockEntity extends BlockEntity {
-    private Item[] canCut = {};
-    private Item[] result = {};
+    private Item[] canCut = {ModItems.GREEN_ONION.get()};
+    private Item[] result = {ModItems.CUT_GREEN_ONION.get()};
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override
@@ -117,7 +124,16 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         }
     }
 
-    public void cutFood() {
-
+    public void cutFood(BlockPos blockPos, Player player) {
+        if (GeneralUtility.checkItemInArray(itemHandler.getStackInSlot(0).getItem(), canCut)) {
+            itemHandler.setStackInSlot(0, new ItemStack(result[GeneralUtility.getIndexFromItemInArray(
+                    itemHandler.getStackInSlot(0).getItem(), canCut)]));
+            level.playSound(null, blockPos, SoundEvents.SHEEP_SHEAR,
+                    SoundSource.BLOCKS, 1f, 1f);
+            level.playSound(null, blockPos, SoundEvents.WOOD_HIT,
+                    SoundSource.BLOCKS, 1f, 1f);
+        } else {
+            player.sendSystemMessage(Component.literal("You can't cut this!"));
+        }
     }
 }
