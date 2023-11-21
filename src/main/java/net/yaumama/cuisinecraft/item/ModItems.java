@@ -17,6 +17,9 @@ public class ModItems {
     public static final RegistryObject<Item> WHISK = ITEMS.register("whisk",
             () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
 
+    public static final RegistryObject<Item> KNIFE = ITEMS.register("knife",
+            () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

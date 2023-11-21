@@ -1,6 +1,7 @@
 {
   "item.cuisinecraft.butter": "Butter",
   "item.cuisinecraft.whisk": "Whisk",
+  "item.cuisinecraft.knife": "Knife",
 
   "block.cuisinecraft.kitchen_floor": "Kitchen Floor",
   "block.cuisinecraft.mixing_bowl": "Mixing Bowl",
@@ -10,5 +11,7 @@
   "block.cuisinecraft.plate": "Plate",
   "block.cuisinecraft.saucepan": "Saucepan",
 
-  "itemGroup.cuisinecrafttab": "Cuisine Craft"
+  "itemGroup.cuisinecrafttab": "Cuisine Craft",
+
+  "sounds.cuisinecraft.sizzle": "Sizzle"
 }

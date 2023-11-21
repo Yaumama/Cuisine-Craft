@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -21,6 +22,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
 import net.yaumama.cuisinecraft.block.entity.FryingPanBlockEntity;
 import net.yaumama.cuisinecraft.block.entity.PlateBlockEntity;
+import net.yaumama.cuisinecraft.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 public class FryingPan extends BaseEntityBlock {
@@ -39,7 +41,7 @@ public class FryingPan extends BaseEntityBlock {
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             BlockEntity entity = level.getBlockEntity(blockPos);
             if (entity instanceof FryingPanBlockEntity fryingPanBlockEntity) {
-                fryingPanBlockEntity.placeFood(player, player.getMainHandItem());
+                fryingPanBlockEntity.placeFood(player, player.getMainHandItem(), blockPos);
             }
         }
 

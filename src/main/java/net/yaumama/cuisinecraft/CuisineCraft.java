@@ -13,6 +13,7 @@ import net.yaumama.cuisinecraft.block.ModBlocks;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
 import net.yaumama.cuisinecraft.item.ModItems;
 import net.yaumama.cuisinecraft.networking.ModMessages;
+import net.yaumama.cuisinecraft.sound.ModSounds;
 import org.slf4j.Logger;
 
 
@@ -28,6 +29,7 @@ public class CuisineCraft
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

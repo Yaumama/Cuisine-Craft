@@ -24,7 +24,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import net.yaumama.cuisinecraft.block.entity.CuttingBoardBlockEntity;
 import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
-import net.yaumama.cuisinecraft.utility.ItemUtils;
+import net.yaumama.cuisinecraft.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 public class CuttingBoard extends BaseEntityBlock {
@@ -43,7 +43,11 @@ public class CuttingBoard extends BaseEntityBlock {
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             BlockEntity entity = level.getBlockEntity(blockPos);
             if (entity instanceof CuttingBoardBlockEntity cuttingBoardBlockEntity) {
-                cuttingBoardBlockEntity.placeFood(player, player.getMainHandItem());
+                if (!player.getMainHandItem().is(ModItems.KNIFE.get())) {
+                    cuttingBoardBlockEntity.placeFood(player, player.getMainHandItem());
+                } else {
+                    cuttingBoardBlockEntity.cutFood();
+                }
             }
         }
 
