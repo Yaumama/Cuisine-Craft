@@ -130,7 +130,7 @@ public class CuttingBoardBlockEntity extends BlockEntity {
                     itemHandler.getStackInSlot(0).getItem(), canCut)]));
             level.playSound(null, blockPos, SoundEvents.SHEEP_SHEAR,
                     SoundSource.BLOCKS, 1f, 1f);
-            level.playSound(null, blockPos, SoundEvents.WOOD_HIT,
+            level.playSound(null, blockPos, SoundEvents.WOOD_PLACE,
                     SoundSource.BLOCKS, 1f, 1f);
         } else {
             player.sendSystemMessage(Component.literal("You can't cut this!"));

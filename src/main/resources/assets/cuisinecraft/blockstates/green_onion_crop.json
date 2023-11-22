@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "age=0": { "model": "cuisinecraft:block/green_onion_stage0" },
+    "age=1": { "model": "cuisinecraft:block/green_onion_stage1" },
+    "age=2": { "model": "cuisinecraft:block/green_onion_stage2" },
+    "age=3": { "model": "cuisinecraft:block/green_onion_stage3" },
+    "age=4": { "model": "cuisinecraft:block/green_onion_stage4" },
+    "age=5": { "model": "cuisinecraft:block/green_onion_stage5" },
+    "age=6": { "model": "cuisinecraft:block/green_onion_stage6" }
+  }
+}

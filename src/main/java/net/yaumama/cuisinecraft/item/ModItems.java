@@ -1,11 +1,14 @@
 package net.yaumama.cuisinecraft.item;
 
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.yaumama.cuisinecraft.CuisineCraft;
+import net.yaumama.cuisinecraft.block.ModBlocks;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -21,10 +24,15 @@ public class ModItems {
             () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
 
     public static final RegistryObject<Item> GREEN_ONION = ITEMS.register("green_onion",
-            () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(1f).build())));
 
     public static final RegistryObject<Item> CUT_GREEN_ONION = ITEMS.register("cut_green_onion",
-            () -> new Item(new Item.Properties().stacksTo(64).tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
+
+    public static final RegistryObject<Item> GREEN_ONION_SEEDS = ITEMS.register("green_onion_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.GREEN_ONION_CROP.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
 
 
     public static void register(IEventBus eventBus) {

@@ -4,6 +4,7 @@
   "item.cuisinecraft.knife": "Knife",
   "item.cuisinecraft.green_onion": "Green Onion",
   "item.cuisinecraft.cut_green_onion": "Cut Green Onion",
+  "item.cuisinecraft.green_onion_seeds": "Green Onion Seeds",
 
   "block.cuisinecraft.kitchen_floor": "Kitchen Floor",
   "block.cuisinecraft.mixing_bowl": "Mixing Bowl",
@@ -12,6 +13,7 @@
   "block.cuisinecraft.cutting_board": "Cutting Board",
   "block.cuisinecraft.plate": "Plate",
   "block.cuisinecraft.saucepan": "Saucepan",
+  "block.cuisinecraft.green_onion_crop": "Green Onion Crop",
 
   "itemGroup.cuisinecrafttab": "Cuisine Craft",
 
