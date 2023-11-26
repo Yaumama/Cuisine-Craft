@@ -118,7 +118,7 @@ public class FryingPanBlockEntity extends BlockEntity {
             return;
         }
 
-        if (item.is(ModItems.BUTTER.get())) {
+        if (item.is(ModItems.BUTTER.get()) && itemHandler.getStackInSlot(0).is(Items.AIR)) {
             buttered = true;
             item.split(1);
             player.getLevel().playSound(null, blockPos, ModSounds.SIZZLE.get(),
@@ -133,12 +133,14 @@ public class FryingPanBlockEntity extends BlockEntity {
                         SoundSource.BLOCKS, 1f, 1f);
                 buttered = false;
             } else {
-                ItemHandlerHelper.giveItemToPlayer(player, itemHandler.getStackInSlot(0));
-                itemHandler.setStackInSlot(0, ItemStack.EMPTY);
-                itemHandler.setStackInSlot(0, item.split(1));
-                player.getLevel().playSound(null, blockPos, ModSounds.SIZZLE.get(),
-                        SoundSource.BLOCKS, 1f, 1f);
-                buttered = false;
+                if (!item.is(itemHandler.getStackInSlot(0).getItem())) {
+                    ItemHandlerHelper.giveItemToPlayer(player, itemHandler.getStackInSlot(0));
+                    itemHandler.setStackInSlot(0, ItemStack.EMPTY);
+                    itemHandler.setStackInSlot(0, item.split(1));
+                    player.getLevel().playSound(null, blockPos, ModSounds.SIZZLE.get(),
+                            SoundSource.BLOCKS, 1f, 1f);
+                    buttered = false;
+                }
             }
         } else {
             player.sendSystemMessage(Component.literal("You need to add butter before cooking!"));

@@ -25,6 +25,7 @@ public class MixingBowlBlockEntityRenderer implements BlockEntityRenderer<Mixing
     @Override
     public void render(MixingBowlBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack,
                        MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
+
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
         ItemStack itemStack = pBlockEntity.getRenderStack();

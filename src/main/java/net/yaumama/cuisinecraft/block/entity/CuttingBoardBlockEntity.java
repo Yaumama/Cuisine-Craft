@@ -102,9 +102,11 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         if (itemHandler.getStackInSlot(0).isEmpty()) {
             itemHandler.setStackInSlot(0, item.split(1));
         } else {
-            ItemHandlerHelper.giveItemToPlayer(player, itemHandler.getStackInSlot(0));
-            itemHandler.setStackInSlot(0, ItemStack.EMPTY);
-            itemHandler.setStackInSlot(0, item.split(1));
+            if (!item.is(itemHandler.getStackInSlot(0).getItem())) {
+                ItemHandlerHelper.giveItemToPlayer(player, itemHandler.getStackInSlot(0));
+                itemHandler.setStackInSlot(0, ItemStack.EMPTY);
+                itemHandler.setStackInSlot(0, item.split(1));
+            }
         }
     }
 
