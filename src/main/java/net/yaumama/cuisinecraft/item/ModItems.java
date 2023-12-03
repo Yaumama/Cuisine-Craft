@@ -25,7 +25,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> GREEN_ONION = ITEMS.register("green_onion",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)
-                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(1f).build())));
+                    .food(new FoodProperties.Builder().nutrition(2).saturationMod(2f).build())));
 
     public static final RegistryObject<Item> CUT_GREEN_ONION = ITEMS.register("cut_green_onion",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
@@ -33,6 +33,11 @@ public class ModItems {
     public static final RegistryObject<Item> GREEN_ONION_SEEDS = ITEMS.register("green_onion_seeds",
             () -> new ItemNameBlockItem(ModBlocks.GREEN_ONION_CROP.get(),
                     new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
+    public static final RegistryObject<Item> SCRAMBLED_EGGS = ITEMS.register("scrambled_eggs",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)
+                    .food(new FoodProperties.Builder().nutrition(10).saturationMod(10f).build())));
+    public static final RegistryObject<Item> RAW_SCRAMBLED_EGGS = ITEMS.register("raw_scrambled_eggs",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CUISINECRAFT_TAB)));
 
 
     public static void register(IEventBus eventBus) {

@@ -38,9 +38,9 @@ public class FryingPanBlockEntity extends BlockEntity {
     private int progress = 0;
     private int maxProgress = 60;
     private Item[] canCook = {Items.BEEF, Items.CHICKEN, Items.COD, Items.MUTTON,
-            Items.PORKCHOP, Items.RABBIT, Items.SALMON};
+            Items.PORKCHOP, Items.RABBIT, Items.SALMON, ModItems.RAW_SCRAMBLED_EGGS.get()};
     private Item[] result = {Items.COOKED_BEEF, Items.COOKED_CHICKEN, Items.COOKED_COD, Items.COOKED_MUTTON,
-            Items.COOKED_PORKCHOP, Items.COOKED_RABBIT, Items.COOKED_SALMON};
+            Items.COOKED_PORKCHOP, Items.COOKED_RABBIT, Items.COOKED_SALMON, ModItems.SCRAMBLED_EGGS.get()};
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override

@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "fluid=0": {
       "model": "cuisinecraft:block/mixing_bowl"
+    },
+    "fluid=1": {
+      "model": "cuisinecraft:block/mixing_bowl_water"
+    },
+    "fluid=2": {
+      "model": "cuisinecraft:block/mixing_bowl_milk"
+    },
+    "fluid=3": {
+      "model": "cuisinecraft:block/mixing_bowl_egg"
     }
   }
 }

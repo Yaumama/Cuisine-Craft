@@ -5,6 +5,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,7 +17,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -27,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MixingBowl extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final IntegerProperty fluid = IntegerProperty.create("fluid", 0, 3);
 
     public MixingBowl(Properties properties) {
         super(properties);
@@ -38,12 +43,26 @@ public class MixingBowl extends BaseEntityBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos blockPos, Player player,
                                  InteractionHand hand, BlockHitResult hitResult) {
-
         if (!level.isClientSide() && hand.toString() == "MAIN_HAND") {
             BlockEntity entity = level.getBlockEntity(blockPos);
             if (entity instanceof MixingBowlBlockEntity mixingBowlBlockEntity) {
                 if (!player.getMainHandItem().is(ModItems.WHISK.get())) {
-                    mixingBowlBlockEntity.placeFood(player, player.getMainHandItem());
+                    if (player.getMainHandItem().is(Items.AIR)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 0), 3);
+                    } else if (player.getMainHandItem().is(Items.BUCKET)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 0), 3);
+                    } else if (player.getMainHandItem().is(Items.WATER_BUCKET)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 1), 3);
+                    } else if (player.getMainHandItem().is(Items.MILK_BUCKET)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 2), 3);
+                    } else if (player.getMainHandItem().is(Items.EGG)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 3), 3);
+                    }
+                    mixingBowlBlockEntity.placeFood(player, player.getMainHandItem(), blockPos);
+                } else {
+                    if (mixingBowlBlockEntity.mix(blockPos, player)) {
+                        level.setBlock(blockPos, state.setValue(fluid, 0), 3);
+                    }
                 }
             }
         }
@@ -74,6 +93,7 @@ public class MixingBowl extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        builder.add(fluid);
     }
 
     /* BLOCK ENTITY STUFF */
