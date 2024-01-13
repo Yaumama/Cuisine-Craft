@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "cuisinecraft:block/cinnamon_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "cuisinecraft:block/cinnamon_wood"
+    },
+    "axis=z": {
+      "model": "cuisinecraft:block/cinnamon_wood_horizontal",
+      "x": 90
+    }
+  }
+}

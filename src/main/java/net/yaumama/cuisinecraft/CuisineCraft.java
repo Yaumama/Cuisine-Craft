@@ -16,6 +16,8 @@ import net.yaumama.cuisinecraft.block.entity.ModBlockEntities;
 import net.yaumama.cuisinecraft.item.ModItems;
 import net.yaumama.cuisinecraft.networking.ModMessages;
 import net.yaumama.cuisinecraft.sound.ModSounds;
+import net.yaumama.cuisinecraft.world.feature.ModConfiguredFeatures;
+import net.yaumama.cuisinecraft.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 
 
@@ -32,6 +34,8 @@ public class CuisineCraft
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

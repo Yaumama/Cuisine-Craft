@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cuisinecraft:cinnamon_log",
+    "cuisinecraft:cinnamon_wood",
+    "cuisinecraft:stripped_cinnamon_log",
+    "cuisinecraft:stripped_cinnamon_wood"
+  ]
+}

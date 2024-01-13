@@ -17,6 +17,14 @@
   "block.cuisinecraft.saucepan": "Saucepan",
   "block.cuisinecraft.green_onion_crop": "Green Onion Crop",
 
+  "block.cuisinecraft.cinnamon_log": "Cinnamon Log",
+  "block.cuisinecraft.cinnamon_leaves": "Cinnamon Leaves",
+  "block.cuisinecraft.cinnamon_planks": "Cinnamon Planks",
+  "block.cuisinecraft.cinnamon_sapling": "Cinnamon Sapling",
+  "block.cuisinecraft.cinnamon_wood": "Cinnamon Wood",
+  "block.cuisinecraft.stripped_cinnamon_log": "Stripped Cinnamon Log",
+  "block.cuisinecraft.stripped_cinnamon_wood": "Stripped Cinnamon Wood",
+
   "itemGroup.cuisinecrafttab": "Cuisine Craft",
 
   "sounds.cuisinecraft.sizzle": "Sizzle"
